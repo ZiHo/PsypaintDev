@@ -19,8 +19,20 @@
         var Agreeableness = {{ agr }};     // 0:not easy-going ... 6:very easy going
         var Conscientiousness = {{ con }}; // 0:chaotic, undisciplined ... 6:very ordered and disciplined
         var Name = "{{ tester_Name }}";
+
+        setTimeout(transCanvas, 2000);
+
+
+        function transCanvas() {
+
+
+            var mypainting = document.getElementById('generatePaint'),
+                dataUrl = mypainting.toDataURL()
+            var imageFoo = document.getElementById('showPaint');
+            imageFoo.src = dataUrl;
+        }
     </script>
-    <script src="{% static 'processing.min.js' %}"></script>
+    <script src="{% static 'js/processing.min.js' %}"></script>
 </head>
 <body>
 
@@ -31,8 +43,8 @@
         <div class="row py-lg-9">
             <div class="col-lg-8 col-md-6 mx-auto">
                 <h2 class="fw-light">Your Painting</h2>
-                <canvas data-processing-sources="{% static 'demo.pde' %}"></canvas>
-
+                <canvas id="generatePaint" class="d-none" data-processing-sources="{% static 'demo.pde' %}"></canvas>
+                <img id="showPaint" style="width: 100%">
             </div>
             <div class="col-lg-4 col-md-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -83,7 +95,7 @@
                              preserveAspectRatio="xMidYMid slice" focusable="false"
                         >
                             <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" />
+                            <rect width="100%" height="100%" fill="#55595c"/>
                             <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
                         </svg>
 
