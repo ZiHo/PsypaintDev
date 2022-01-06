@@ -23,7 +23,7 @@
         {% csrf_token %}
         <img class="m-3 mb-6" src="{% static '/images/painting.png' %}" alt="" width="128" height="128">
         <h1 class="h3 mb-3 fw-normal">
-            {% if lang == 'en' %}Mind Painting{% else %}思维绘图{% endif %}
+            {% if lang == 'en' %}Mind Painting{% else %}心理画{% endif %}
         </h1>
 
         <div class="form-item form-floating">
@@ -79,9 +79,9 @@
     </form>
 
     {% if lang == 'en' %}
-    <a href="{% url 'welcomeCN' %}" class="my-2 w-100 btn btn-lg btn-secondary">中文</a>
+    <a href="{% url 'welcomeCN' %}" class="my-2 w-100 btn btn-lg btn-outline-primary">中文</a>
     {% else %}
-    <a href="{% url 'welcomeEN' %}" class="my-2 w-100 btn btn-lg btn-secondary">English</a>
+    <a href="{% url 'welcomeEN' %}" class="my-2 w-100 btn btn-lg btn-outline-primary">English</a>
     {% endif %}
 
 

@@ -47,15 +47,38 @@
                 <img id="showPaint" style="width: 100%">
             </div>
             <div class="col-lg-4 col-md-4 order-md-last">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Action</span>
-                </h4>
-                <div class="card p-2">
-                    <a class="btn btn-primary">Download Image</a>
-                </div>
-                <div class="card p-2">
-                    <a class="btn btn-primary">Share to ...</a>
-                </div>
+                <canvas id="myChart"></canvas>
+                <script>
+                    const ctx1 = document.getElementById("myChart").getContext("2d");
+                    const myChart = new Chart(ctx1, {
+                        type: 'radar',
+                        data: {
+                            labels: ['Extraversion', 'Agreeableness', 'Conscientiousness', 'Neuroticism', 'Openness'],
+                            datasets: [{
+                                label: 'My Result',
+                                data: [{{ext}}, {{agr}}, {{con}}, {{neu}}, {{ope}}],
+                                fill: true,
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderColor: 'rgb(255, 99, 132)',
+                                pointBackgroundColor: 'rgb(255, 99, 132)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgb(255, 99, 132)'
+                            }]
+                        },
+
+                        options: {
+                            scale: {
+                                r: {
+                                    beginAtZero: true,
+                                    stepSize: 1,
+                                    min: 0,
+                                    max: 7
+                                }
+                            }
+                        }
+                    });
+                </script>
             </div>
         </div>
         <div class="row py-lg-3">
