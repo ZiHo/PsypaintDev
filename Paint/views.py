@@ -12,7 +12,8 @@ def welcome(request):
     if request.method == 'POST':
         data = {'tester_Name': request.POST['username'], 'tester_Gender': request.POST['gender'],
                 'tester_Role': request.POST['role'], 'tester_Age': request.POST['userage'],
-                'start_time': timezone.now().isoformat(), 'tester_No': request.POST['userno'],
+                'start_time': timezone.now().isoformat(),
+                'tester_No': request.POST['userno'] if request.POST.get('userno') else '',
                 'tester_Program': request.POST['userprog'] if request.POST.get('userprog') else ''}
         request.session['data'] = data
         request.session['randomshapes'] = []
@@ -35,7 +36,7 @@ def tests(request, test_id):
     if request.session.get('data') is None or request.session.get('randomshapes') is None:
         return redirect('welcome')
 
-    if request.method == 'POST' is not None:
+    if request.method == 'POST':
         if test_id <= 10:
             request.session['data'][f'q{test_id}'] = int(request.POST['value'])
         elif test_id <= 14:

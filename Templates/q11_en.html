@@ -47,6 +47,9 @@
 <input type="text" style="display: none" id="color" name="color" required>
 
 <script type="text/javascript">
+
+    const shuffle = arr => arr.map(val => ([val, Math.random()])).sort((x, y) => x[1] - y[1]).map(tuple => tuple[0])
+
     const allColors = {
         red: 'red',
         green: 'green',
@@ -119,14 +122,20 @@
                 ctx.arc(100, 100, 90, 0, 2 * Math.PI)
                 break
             case 'halfcircle':
-                ctx.arc(100, 100, 90, 0, Math.PI, true)
-                ctx.lineTo(190, 100)
+                const radiusA = 120, radiusB = 60
+                const centerX = 100, centerY = 190
+                const beginAngle = -Math.PI / 3, endAngle = -Math.PI / 3 * 2
+                ctx.arc(centerX, centerY, radiusA, beginAngle, endAngle, true)
+                ctx.lineTo(centerX - radiusB * Math.cos(Math.PI + endAngle), centerY - radiusB * Math.sin(Math.PI + endAngle))
+                ctx.arc(centerX, centerY, radiusB, endAngle, beginAngle, false)
+                ctx.lineTo(centerX + radiusA * Math.cos(-beginAngle), centerY - radiusA * Math.sin(-beginAngle))
                 break
         }
 
         if (color) {
             ctx.fillStyle = color
             ctx.fill()
+            ctx.strokeStyle = color
         }
         ctx.stroke()
     }
@@ -149,7 +158,7 @@
     }
 
     $(function () {
-        Object.keys(allColors).forEach(color => {
+        shuffle(Object.keys(allColors)).forEach(color => {
             const div = $('<div>', {
                 class: 'shape-colors',
                 style: `background-color: ${allColors[color]}`

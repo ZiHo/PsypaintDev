@@ -31,12 +31,11 @@
             <label for="username">{% if lang == 'en' %}Name{% else %}姓名{% endif %}</label>
         </div>
         <div class="form-item form-floating">
-            <input type="number" class="form-control" name="userage" id="userage" required>
+            <select class="form-select" id="userage" name="userage" value="" required>
+                <option hidden disabled selected value="">-</option>
+                <option value="20">20~30</option>
+            </select>
             <label for="userage">{% if lang == 'en' %}Age{% else %}年龄{% endif %}</label>
-        </div>
-        <div class="form-item form-floating">
-            <input type="text" class="form-control" name="userno" id="userno" required>
-            <label for="userno">{% if lang == 'en' %}User ID{% else %}学号/工号{% endif %}</label>
         </div>
         <div class="form-item form-floating">
             <select class="form-select" id="role" name="role" value="" required>
@@ -47,6 +46,10 @@
                 <option value="others">Others</option>
             </select>
             <label for="role">{% if lang == 'en' %}Role{% else %}身份{% endif %}</label>
+        </div>
+        <div id="divno" class="form-item form-floating" style="display: none">
+            <input type="text" class="form-control" name="userno" id="userno">
+            <label for="userno">{% if lang == 'en' %}User ID{% else %}学号/工号{% endif %}</label>
         </div>
         <div id="divprog" class="form-item" style="display: flex">
             <div id="userdivwrapper" class="form-floating me-2" style="flex: auto">
@@ -142,6 +145,13 @@
         } else {
             $('#divprog').hide()
             $('#userdiv, #userprog').prop('required', false)
+        }
+        if (role === 'staff' || role === 'others') {
+            $('#divno').hide()
+            $('#userno').prop('required', false)
+        } else {
+            $('#divno').show()
+            $('#userno').prop('required', true)
         }
         $('#userdiv, #userprog').val('')
     }
