@@ -21,10 +21,10 @@
 <main class="form-signin">
     <form method="POST" action="{% url 'welcome' %}">
         {% csrf_token %}
-        <img class="m-3 mb-6" src="{% static '/images/painting.png' %}" alt="" width="128" height="128">
-        <h1 class="h3 mb-3 fw-normal">
-            {% if lang == 'en' %}Mind Painting{% else %}心理画{% endif %}
-        </h1>
+        <img class="m-1 mb-6" src="{% static '/images/logo.png' %}" alt="" width="256" height="256">
+{#        <h1 class="h3 mb-3 fw-normal">#}
+{#            {% if lang == 'en' %}Mind Painting{% else %}心理画{% endif %}#}
+{#        </h1>#}
 
         <div class="form-item form-floating">
             <input class="form-control" name="username" id="username" required>
@@ -33,7 +33,13 @@
         <div class="form-item form-floating">
             <select class="form-select" id="userage" name="userage" value="" required>
                 <option hidden disabled selected value="">-</option>
-                <option value="20">20~30</option>
+                <option value="20"><20</option>
+                <option value="20">21~30</option>
+                <option value="30">31~40</option>
+                <option value="40">41~50</option>
+                <option value="50">51~60</option>
+                <option value="60">61~70</option>
+                <option value="70">>70</option>
             </select>
             <label for="userage">{% if lang == 'en' %}Age{% else %}年龄{% endif %}</label>
         </div>
@@ -82,9 +88,9 @@
     </form>
 
     {% if lang == 'en' %}
-    <a href="{% url 'welcomeCN' %}" class="my-2 w-100 btn btn-lg btn-outline-primary">中文</a>
+        <a href="{% url 'welcomeCN' %}" class="my-2 w-100 btn btn-lg btn-outline-primary">中文</a>
     {% else %}
-    <a href="{% url 'welcomeEN' %}" class="my-2 w-100 btn btn-lg btn-outline-primary">English</a>
+        <a href="{% url 'welcomeEN' %}" class="my-2 w-100 btn btn-lg btn-outline-primary">English</a>
     {% endif %}
 
 
@@ -145,6 +151,9 @@
         } else {
             $('#divprog').hide()
             $('#userdiv, #userprog').prop('required', false)
+        }
+        if (role === 'undergraduate' || role === 'postgraduate') {
+
         }
         if (role === 'staff' || role === 'others') {
             $('#divno').hide()

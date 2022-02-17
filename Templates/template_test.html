@@ -54,11 +54,11 @@
 
             <div class="py-3">
                 {% if test_id == 1 %}
-                <a id="last-test" href="{% url 'welcome' %}" class="btn btn-outline-secondary btn-lg px-4 mx-1"> ← </a>
+                <a id="last-test" href="{% url 'welcome' %}" class="btn btn-outline-secondary btn-lg px-4 mx-1"> Return </a>
                 {% else %}
-                <a id="last-test" href="{% url 'tests' last_test_id %}" class="btn btn-outline-secondary btn-lg px-4"> ← </a>
+                <a id="last-test" href="{% url 'tests' last_test_id %}" class="btn btn-outline-secondary btn-lg px-4"> Return </a>
                 {% endif %}
-                <button id="next-test" type="submit" class="btn btn-lg btn-outline-secondary px-4 mx-1"> → </button>
+                <button id="next-test" type="submit" class="btn btn-lg btn-outline-secondary px-4 mx-1"> Confirm </button>
             </div>
         </form>
     </main>
