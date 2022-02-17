@@ -122,9 +122,9 @@
                 ctx.arc(100, 100, 90, 0, 2 * Math.PI)
                 break
             case 'halfcircle':
-                const radiusA = 120, radiusB = 60
-                const centerX = 100, centerY = 190
-                const beginAngle = -Math.PI / 3, endAngle = -Math.PI / 3 * 2
+                const radiusA = 120, radiusB = 0
+                const centerX = 40, centerY = 160
+                const beginAngle = 0, endAngle = -Math.PI / 2
                 ctx.arc(centerX, centerY, radiusA, beginAngle, endAngle, true)
                 ctx.lineTo(centerX - radiusB * Math.cos(Math.PI + endAngle), centerY - radiusB * Math.sin(Math.PI + endAngle))
                 ctx.arc(centerX, centerY, radiusB, endAngle, beginAngle, false)

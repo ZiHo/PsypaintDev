@@ -72,7 +72,7 @@ def tests(request, test_id):
             return redirect('testresult')
     else:
         lang = request.session.get('lang', 'en')
-        context = {'num_of_tests': NUMBER_OF_TESTS, 'test_id': test_id, 'last_test_id': test_id - 1}
+        context = {'num_of_tests': NUMBER_OF_TESTS, 'test_id': test_id, 'last_test_id': test_id - 1, 'lang': request.session.get('lang', 'en')}
 
         if 11 <= test_id <= 14:
             if len(request.session['randomshapes']) < test_id - 10:
