@@ -62,52 +62,52 @@
             <div class="col-lg-1"></div>
             <div class="col-md-8 col-lg-3 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Your Information</span>
+                    <span class="text-primary">您的信息</span>
                 </h4>
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Name</h6>
-                            <small class="text-muted">display in painting</small>
+                            <h6 class="my-0">姓名</h6>
+                            <small class="text-muted">显示在画中</small>
                         </div>
                         <span class="text-muted">{{ tester_Name }}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Role</h6>
-                            <small class="text-muted">collected</small>
+                            <h6 class="my-0">身份</h6>
+                            <small class="text-muted">已记录</small>
                         </div>
                         <span class="text-muted">{{ tester_Role }}</span>
                     </li>
                     {% if tester_Program %}
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Program</h6>
-                            <small class="text-muted">collected</small>
+                            <h6 class="my-0">专业</h6>
+                            <small class="text-muted">已记录</small>
                         </div>
                         <span class="text-muted">{{ tester_Program }}</span>
                     </li>
                     {% endif %}
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Age</h6>
-                            <small class="text-muted">collected</small>
+                            <h6 class="my-0">年龄</h6>
+                            <small class="text-muted">已记录</small>
                         </div>
                         <span class="text-muted">{{ tester_Age }}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">Gender</h6>
-                            <small class="text-muted">collected</small>
+                            <h6 class="my-0">性别</h6>
+                            <small class="text-muted">已记录</small>
                         </div>
                         <span class="text-muted">{{ tester_Gender }}</span>
                     </li>
                 </ul>
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">See Painting</span>
+                    <span class="text-primary">查看心理画</span>
                 </h4>
                 <div class="card p-2">
-                    <a href="{% url 'testpaint' %}" class="btn btn-secondary">Generate</a>
+                    <a href="{% url 'testpaint' %}" class="btn btn-secondary">生成</a>
                 </div>
             </div>
         </div>

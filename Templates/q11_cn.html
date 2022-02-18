@@ -47,6 +47,9 @@
 <input type="text" style="display: none" id="color" name="color" required>
 
 <script type="text/javascript">
+
+    const shuffle = arr => arr.map(val => ([val, Math.random()])).sort((x, y) => x[1] - y[1]).map(tuple => tuple[0])
+
     const allColors = {
         red: 'red',
         green: 'green',
@@ -61,7 +64,7 @@
         ticks_labels: [
             '<span><b>非常<br>伤心</b></span>',
             '',
-            '<span><b>中性</b></span>',
+            '<span><b></b></span>',
             '',
             '<span><b>非常<br>开心</b></span>'
         ],
@@ -73,7 +76,7 @@
         ticks_labels: [
             '<span><b>非常<br>柔软</b></span>',
             '',
-            '<span><b>中性</b></span>',
+            '<span><b></b></span>',
             '',
             '<span><b>非常<br>坚硬</b></span>'
         ],
@@ -85,7 +88,7 @@
         ticks_labels: [
             '<span><b>非常<br>稳定</b></span>',
             '',
-            '<span><b>中性</b></span>',
+            '<span><b></b></span>',
             '',
             '<span><b>非常<br>活泼</b></span>'
         ],
@@ -119,14 +122,20 @@
                 ctx.arc(100, 100, 90, 0, 2 * Math.PI)
                 break
             case 'halfcircle':
-                ctx.arc(100, 100, 90, 0, Math.PI, true)
-                ctx.lineTo(190, 100)
+                const radiusA = 120, radiusB = 0
+                const centerX = 40, centerY = 160
+                const beginAngle = 0, endAngle = -Math.PI / 2
+                ctx.arc(centerX, centerY, radiusA, beginAngle, endAngle, true)
+                ctx.lineTo(centerX - radiusB * Math.cos(Math.PI + endAngle), centerY - radiusB * Math.sin(Math.PI + endAngle))
+                ctx.arc(centerX, centerY, radiusB, endAngle, beginAngle, false)
+                ctx.lineTo(centerX + radiusA * Math.cos(-beginAngle), centerY - radiusA * Math.sin(-beginAngle))
                 break
         }
 
-        if (color) {
+         if (color) {
             ctx.fillStyle = color
             ctx.fill()
+            ctx.strokeStyle = color
         }
         ctx.stroke()
     }
